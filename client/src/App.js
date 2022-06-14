@@ -3,17 +3,16 @@ import { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
 
-const itemsFromBackend = [
+const itemsFromBackendArray = [
   { id: uuidv4(), content: "First task" },
   { id: uuidv4(), content: "Second task" },
 ];
-const columnsFromBackend = 
-  {
-    [uuidv4()]: {
-      name: "Todo",
-      items: [],
-    }
-  }
+const columnsFromBackend = {
+  [uuidv4()]: {
+    name: "Todo",
+    items: itemsFromBackendArray,
+  },
+};
 
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
@@ -54,10 +53,12 @@ function App() {
                                   userSelect: "none",
                                   padding: 16,
                                   margin: "0 0 8px 0",
-                                  minHeight: '50px',
-                                  backgroundColor: snapshot.isDragging ? '#263B4A' : '#456C86',
-                                  color: 'white',
-                                  ...provided.draggableProps.style
+                                  minHeight: "50px",
+                                  backgroundColor: snapshot.isDragging
+                                    ? "#263B4A"
+                                    : "#456C86",
+                                  color: "white",
+                                  ...provided.draggableProps.style,
                                 }}
                               >
                                 {item.content}
