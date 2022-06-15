@@ -14,14 +14,21 @@ const columnsFromBackend = {
   },
 };
 
+const onDragEnd = (result, column, setColumns) => {
+  if (!result.destination) return;
+  const { source, destination } = result;
+  const column = 
+}
+
 function App() {
   const [columns, setColumns] = useState(columnsFromBackend);
   return (
     <div className="App">
-      <DragDropContext onDropEnd={(result) => console.log(result)}>
+      <DragDropContext onDragEnd={(result) => console.log(result)}>
         {Object.entries(columns).map(([id, column]) => {
           return (
-            <Droppable droppableId={id}>
+          
+            <Droppable droppableId={id} key={id}>
               {(provided, snapshot) => {
                 return (
                   <div
@@ -68,6 +75,7 @@ function App() {
                         </Draggable>
                       );
                     })}
+                    {provided.placeholder}
                   </div>
                 );
               }}
