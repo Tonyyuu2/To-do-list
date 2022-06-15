@@ -3,3 +3,14 @@
   justify-content: center;
   height: 100%
 }
+
+.containerTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.droppable {
+  margin: 8px;
+
+}
