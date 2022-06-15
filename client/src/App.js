@@ -47,7 +47,7 @@ function App() {
                             return (
                               <div
                                 ref={provided.innerRef}
-                                {...provided.dragHandleProps}
+                                {...provided.draggableProps}
                                 {...provided.dragHandleProps}
                                 style={{
                                   userSelect: "none",
